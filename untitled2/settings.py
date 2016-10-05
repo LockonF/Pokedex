@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'pokemon.apps.PokemonConfig',
     'entrenador.apps.EntrenadorConfig',
+    'pokedex.apps.PokedexConfig',
 ]
 
 MIDDLEWARE = [
