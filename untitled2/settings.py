@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'pokemon.apps.PokemonConfig',
     'entrenador.apps.EntrenadorConfig',
     'pokedex.apps.PokedexConfig',
+    'ataque.apps.AtaqueConfig',
 ]
 
 MIDDLEWARE = [

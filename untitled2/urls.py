@@ -20,7 +20,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include('pokemon.urls')),
     url(r'^',include('entrenador.urls')),
-    url(r'^',include('pokedex.urls'))
+    url(r'^',include('pokedex.urls')),
+    url(r'^',include('ataque.urls'))
 
 
 ]
