@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 
 from entrenador.models import EntrenadorHasPokemon, Entrenador
 from pokedex.models import Pokedex
@@ -6,6 +7,13 @@ from pokemon.serializers import CustomPokemonSerializer, PokemonSerializer
 
 
 class EntrenadorHasPokemonSerializer(serializers.ModelSerializer):
+
+    def validate(self, attrs):
+        tipo_pokemon = attrs['pokemon'].tipo
+        for ataque in attrs['ataques']:
+            if ataque.tipo_pokemon.id != tipo_pokemon.id:
+                raise ValidationError('El tipo '+tipo_pokemon.nombre+' no coincide con '+ataque.tipo_pokemon.nombre+' del ataque '+ataque.nombre)
+        return attrs
 
     def create(self, validated_data):
         """

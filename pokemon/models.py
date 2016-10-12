@@ -8,6 +8,14 @@ class TipoPokemon(models.Model):
     def __str__(self):
         return self.nombre
 
+class Ataque(models.Model):
+    nombre = models.CharField(max_length=50)
+    poder = models.IntegerField()
+    punteria = models.IntegerField()
+    tipo_pokemon = models.ForeignKey(TipoPokemon, on_delete=models.CASCADE, related_name='ataque_tipo')
+
+    def __str__(self):
+        return self.nombre
 
 class Pokemon(models.Model):
     CHOICES = (('normal', 'normal'), ('legenario', 'legendario'))

@@ -1,7 +1,8 @@
 from django.db import models
 # Una app es un modulo
 # Create your models here.
-from pokemon.models import Pokemon
+from pokemon.models import Pokemon, Ataque
+
 
 class Entrenador(models.Model):
     CHOICES = (('Mystic', 'Mystic'), ('Valor', 'Valor'), ('instinct', 'instinct'))
@@ -16,6 +17,7 @@ class Entrenador(models.Model):
 
 
 class EntrenadorHasPokemon(models.Model):
+    ataques = models.ManyToManyField(Ataque)
     nombre = models.CharField(max_length=50)
     cp = models.IntegerField(default=1)
     hp = models.IntegerField(default=1)
